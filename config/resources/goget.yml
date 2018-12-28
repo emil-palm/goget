@@ -1,0 +1,19 @@
+rssparser:
+  firstTest:
+    urls:
+      - "http://www.google.se/rss"
+      - "http://www.facebook.com/rss"
+    rules:
+      - pattern: hebsub
+        matching: title
+        all: reject
+      - pattern: internal
+        matching: flags
+        first: 0.8
+        other: 0.001
+    path: ./foobar/{{title}}
+    matching: 
+      list: 
+        - "Wallah"
+      externalrss: http://www.mooo.se/rss
+
